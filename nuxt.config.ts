@@ -4,23 +4,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt", "@nuxtjs/supabase"],
   shadcn: { componentDir: "./components/ui" },
-  components: [
-    {
-      path: "~/components/ui",
-      prefix: '',
-      extensions: [".vue"]
-    },
-    {
-      path: "~/components",
-      extensions: [".vue"],
-      prefix: ''
-    }
-  ],
   supabase: {
     redirectOptions: {
       login: "/auth",
       callback: "/confirm",
       exclude: ['/']
     }
-  }
+  },
 });
