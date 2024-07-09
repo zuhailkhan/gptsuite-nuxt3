@@ -7,25 +7,27 @@
                 </div>
             </CardTitle>
             <CardContent>
-                <Auth :supabaseClient="supabaseClient" :appearance="{
-                    theme: ThemeSupa
-                }" :providers="['github', 'google']" redirectTo="/" />
+                <!-- Supabase Auth Box Here -->
+                Auth Box Here
             </CardContent>
         </Card>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ThemeSupa } from '@supabase/auth-ui-shared';
-import { Auth } from '@nuxtbase/auth-ui-vue';
-
+/* 
+    TicketID: AFT-001
+    Problem: Had to remove supabase auth from the 
+    reason: supabase auth wrapper for nuxt3 doesnt have type compliance
+    evidence: https://github.com/nuxt-modules/supabase/issues/383
+    solution: {
+        message: Use supabase auth wrapper for JS Directly without any wrapper
+        ticketID: AFT-002
+    }
+*/
 const ProjectTitle = ref<string>("GPTSuite");
 
 definePageMeta({
     layout: 'home',
 })
-
-const supabaseClient = useSupabaseClient();
 </script>
-
-<style scoped></style>
